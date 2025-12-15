@@ -1,4 +1,11 @@
-// index.js
-import { greeting } from "./greeting.js";
+// console.log("good morning")
 
-console.log(greeting);
+// import InitialPageLoader from "./loader.js"
+
+// console.log(InitialPageLoader());
+
+// index.js
+import { PageLoad } from "./pageloader.js";
+
+// console.log(greeting);
+PageLoad();
