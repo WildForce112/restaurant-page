@@ -1,11 +1,6 @@
-// console.log("good morning")
+import "./styles.css";
+import { HomePageLoad, MenuPageLoad, AboutPageLoad } from "./pageloader.js";
 
-// import InitialPageLoader from "./loader.js"
-
-// console.log(InitialPageLoader());
-
-// index.js
-import { PageLoad } from "./pageloader.js";
-
-// console.log(greeting);
-PageLoad();
+HomePageLoad();
+// MenuPageLoad();
+// AboutPageLoad();

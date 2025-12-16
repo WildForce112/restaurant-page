@@ -1,11 +1,9 @@
-// export const greeting = "Hello, Odinite!";
-
-export function PageLoad() {
-  const HomeContent = document.querySelector("#content")
+export function HomePageLoad() {
+  const PageContent = document.querySelector("#content")
   
   const RestaurantName = document.createElement("h1");
   RestaurantName.textContent = "William's Tacos"
-  HomeContent.appendChild(RestaurantName);
+  PageContent.appendChild(RestaurantName);
 
   const quoteContainer = document.createElement('div')
   quoteContainer.id = "quote-container";
@@ -17,7 +15,7 @@ export function PageLoad() {
   quoteAuthor.id = "quote-author";
   quoteAuthor.textContent = "- Isabel Quintero";
   quoteContainer.appendChild(quoteAuthor);
-  HomeContent.appendChild(quoteContainer);
+  PageContent.appendChild(quoteContainer);
 
   const hours = [
     "Monday: 7am-9pm",
@@ -38,7 +36,7 @@ export function PageLoad() {
     day.textContent = hour;
     openHours.append(day);
   })
-  HomeContent.appendChild(openHours);
+  PageContent.appendChild(openHours);
 
   const location = document.createElement('div');
   location.id = 'location';
@@ -46,5 +44,53 @@ export function PageLoad() {
   locationHeadline.textContent = "Location";
   location.appendChild(locationHeadline);
   location.appendChild(document.createTextNode("112 Red Coast Avenue, New York City"))
-  HomeContent.appendChild(location);
+  PageContent.appendChild(location);
+}
+
+export function MenuPageLoad() {
+  const PageContent = document.querySelector("#content")
+
+  const MenuText = document.createElement("h1");
+  MenuText.textContent = "Menu"
+  PageContent.appendChild(MenuText);
+
+  const category = [
+    ["Tacos", [
+      ["Chicken Taco", "3.00"],
+      ["Beef Taco", "3.50"],
+      ["Pork Taco", "3.50"],
+      ["Veggie Taco", "2.50"],
+    ]],
+    ["Burritos", [
+      ["Chicken Burrito", "7.00"],
+      ["Beef Burrito", "7.50"],
+      ["Veggie Burrito", "6.50"],
+    ]],
+    ["Sides", [
+      ["Chips & Salsa", "2.50"],
+      ["Chips & Guacamole", "3.50"],
+    ]],
+    ["Soft Drinks", [
+      ["Soft Drink", "2.00"],
+      ["Water", "1.50"],
+    ]]
+  ]
+  category.forEach(([cate, dishes]) => {
+    const display = document.createElement('div');
+    display.className = "category";
+    const categoryText = document.createElement('h2');
+    categoryText.textContent = cate;
+    display.appendChild(categoryText);
+    dishes.forEach(([dish, price]) => {
+      const dishDisplay = document.createElement('p');
+      dishDisplay.className = "dish";
+      dishDisplay.textContent = `${dish} - ${price}`;
+      display.appendChild(dishDisplay);
+    });
+    PageContent.appendChild(display);
+  })
+}
+
+export function AboutPageLoad() {
+  const PageContent = document.querySelector("#content");
 }
