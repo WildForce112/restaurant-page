@@ -3,9 +3,9 @@ import { HomePageLoad, MenuPageLoad, AboutPageLoad, ClearPage } from "./pageload
 
 (function (){
   document.addEventListener('click', (e) => {
-    ClearPage();
     const target = e.target.closest('button');
     if(target){
+      ClearPage();
       if(target.textContent.includes("Home")){
         HomePageLoad();
       }      
