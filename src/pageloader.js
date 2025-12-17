@@ -1,9 +1,10 @@
 export function HomePageLoad() {
   const PageContent = document.querySelector("#content")
   
-  const RestaurantName = document.createElement("h1");
-  RestaurantName.textContent = "William's Tacos"
-  PageContent.appendChild(RestaurantName);
+  const RestaurantHeader = document.createElement("h1");
+  RestaurantHeader.className = "header";
+  RestaurantHeader.textContent = "William's Tacos"
+  PageContent.appendChild(RestaurantHeader);
 
   const quoteContainer = document.createElement('div')
   quoteContainer.id = "quote-container";
@@ -28,7 +29,7 @@ export function HomePageLoad() {
   ]
   const openHours = document.createElement('div');
   openHours.id = 'open-hour'
-  const openHoursText = document.createElement('h3');
+  const openHoursText = document.createElement('h2');
   openHoursText.textContent = "Open Hours";
   openHours.appendChild(openHoursText);
   hours.forEach((hour) => {
@@ -50,9 +51,10 @@ export function HomePageLoad() {
 export function MenuPageLoad() {
   const PageContent = document.querySelector("#content")
 
-  const MenuText = document.createElement("h1");
-  MenuText.textContent = "Menu"
-  PageContent.appendChild(MenuText);
+  const MenuHeader = document.createElement("h1");
+  MenuHeader.className = "header"
+  MenuHeader.textContent = "Menu"
+  PageContent.appendChild(MenuHeader);
 
   const category = [
     ["Tacos", [
@@ -93,4 +95,42 @@ export function MenuPageLoad() {
 
 export function AboutPageLoad() {
   const PageContent = document.querySelector("#content");
+  const ContactHeader = document.createElement("h1");
+  ContactHeader.className = "header";
+  ContactHeader.textContent = "Contact Us";
+  PageContent.appendChild(ContactHeader);
+  
+  const contacts = [
+    ["Manager", {
+      name: "Alex Rivera",
+      phone: "555-123-4567",
+      email: "manager@williamstaco.com"
+    }],
+    ["Chef", {
+      name: "Maria Lopez",
+      phone: "555-234-5678",
+      email: "chef@williamstaco.com"
+    }],
+    ["Waiter", {
+      name: "James Nguyen",
+      phone: "555-345-6789",
+      email: "waiter@williamstaco.com"
+    }]
+  ]
+  contacts.forEach(([role, {name, phone, email}]) => {
+    const contact = document.createElement('div');
+    contact.className = 'header';
+    contact.innerHTML = `
+      <h2>${name}</h2>
+      <p>${role}</p>
+      <p>${phone}</p>
+      <p>${email}</p>
+    `
+    PageContent.appendChild(contact)
+  })
+}
+
+export function ClearPage(){
+  const PageContent = document.querySelector("#content");
+  PageContent.textContent = "";
 }
